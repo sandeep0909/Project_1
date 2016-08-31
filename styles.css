@@ -4,7 +4,11 @@
     border: chocolate solid 1px;
     align: center;
 }
-
+.parclass{
+  width: 100%;
+  height: 100%;
+  border: chocolate solid 1px;
+}
 .navbar {
     width: 100%;
     height: 30px;
@@ -20,7 +24,7 @@
 }
 
 .game {
-    width: 30%;
+    width: 32%;
     height: 140px;
     background-color: blue;
     border: chocolate solid 1px;
@@ -29,13 +33,18 @@
 }
 
 .footer {
-    width: 100%;
+    max-width: 100%;
     text-align: center;
     height: 30px;
     background-color: beige;
     border: chocolate solid 1px;
 }
+#start_game{
+      height: 615px;
+      max-width: 98%;
+      display: inline-block;
 
+}
 img {
     max-height: 100%;
     max-width: 100%;

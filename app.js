@@ -1,62 +1,66 @@
 var cardsInPlay = [];
 var points = 0;
 var currPlayer = playerA;
+var pointAA = 0;
+var pointBB = 0;
+var totalPoints = 0;
 
 var box_arr = [
-'<div id="box1" class="game"><img src="memory-car.png" class="car" alt="car" ><img src="bg_img.jpg" class="default-img1" alt="" ></div>' ,
-'<div id="box2" class="game"><img src="memory-car.png" class="car" alt="car"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
-'<div id="box3" class="game"><img src="memory_baloon.png" class="balloon" alt="balloon"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
-'<div id="box4" class="game"><img src="memory_baloon.png" class="balloon" alt="balloon"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
-'<div id="box5" class="game"><img src="memory_cow.png" class="cow" alt="cow"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
-'<div id="box6" class="game"><img src="memory_cow.png" class="cow" alt="cow"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
-'<div id="box7" class="game"><img src="memory_crane.png" class="crane" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
-'<div id="box8" class="game"><img src="memory_crane.png" class="crane" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>','<div id="box9" class="game"><img src="memory_lion.png" class="lion" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>','<div id="box10" class="game"><img src="memory_lion.png" class="lion" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>','<div id="box11" class="game"><img src="memory_orange.png" class="orange" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>','<div id="box12" class="game"><img src="memory_orange.png" class="orange" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>'
+    '<div id="box1" class="game"><img src="memory-car.png" class="car" alt="car" ><img src="bg_img.jpg" class="default-img1" alt="" ></div>',
+    '<div id="box2" class="game"><img src="memory-car.png" class="car" alt="car"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
+    '<div id="box3" class="game"><img src="memory_baloon.png" class="balloon" alt="balloon"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
+    '<div id="box4" class="game"><img src="memory_baloon.png" class="balloon" alt="balloon"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
+    '<div id="box5" class="game"><img src="memory_cow.png" class="cow" alt="cow"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
+    '<div id="box6" class="game"><img src="memory_cow.png" class="cow" alt="cow"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
+    '<div id="box7" class="game"><img src="memory_crane.png" class="crane" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
+    '<div id="box8" class="game"><img src="memory_crane.png" class="crane" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>', '<div id="box9" class="game"><img src="memory_lion.png" class="lion" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>', '<div id="box10" class="game"><img src="memory_lion.png" class="lion" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>', '<div id="box11" class="game"><img src="memory_orange.png" class="orange" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>', '<div id="box12" class="game"><img src="memory_orange.png" class="orange" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>'
 ]
 
 
-function randomize(){
-  shuffle(box_arr)
-for (var i = 0; i < box_arr.length; i++) {
- $('.parclass').append(box_arr[i])
-}
+function randomize() {
+    shuffle(box_arr)
+    for (var i = 0; i < box_arr.length; i++) {
+        $('.parclass').append(box_arr[i])
+    }
 
 }
 
 
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+    var currentIndex = array.length,
+        temporaryValue, randomIndex;
 
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
 
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
 
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
 
-  return array;
+    return array;
 }
 
 function myTurn() {
-  console.log("myTurn Called");
+    console.log("myTurn Called");
     if (currPlayer == playerA) {
 
         currPlayer = playerB;
-      $('#btn2').css("background-color","red");
-      $('#btn1').css("background-color","rgb(192, 192, 192)");
+        $('#btn2').css("background-color", "red");
+        $('#btn1').css("background-color", "rgb(192, 192, 192)");
 
         console.log(currPlayer);
         return (currPlayer);
 
     } else {
         currPlayer = playerA;
-      $('#btn1').css("background-color","blue");
-      $('#btn2').css("background-color","rgb(192, 192, 192)");
+        $('#btn1').css("background-color", "blue");
+        $('#btn2').css("background-color", "rgb(192, 192, 192)");
         console.log(currPlayer);
         return (currPlayer);
     }
@@ -66,19 +70,25 @@ function myScore() {
     if (currPlayer == playerA) {
         points = parseInt($('#playerA').val())
         points = points + 1
+        pointAA = points
         $('#playerA').val(points)
-        console.log(points);
+        console.log("pointAA " + pointAA);
+
     } else {
         points = parseInt($('#playerB').val())
         points = points + 1
+        pointBB = points
         $('#playerB').val(points)
-        console.log(points);
+        console.log("pointbb " + pointBB);
     }
+    console.log("computing total points")
+    totalPoints = pointAA + pointBB
+    console.log("Total points scored so far is  " + totalPoints);
 }
 
-function resetScore(){
-  parseInt($('#playerA').val(0))
-  parseInt($('#playerB').val(0))
+function resetScore() {
+    parseInt($('#playerA').val(0))
+    parseInt($('#playerB').val(0))
 }
 
 function isMatch() {
@@ -86,6 +96,7 @@ function isMatch() {
     console.log("Logging for isMatch " + cardsInPlay[0] + "Array 1 is " + cardsInPlay[1]);
 
 }
+
 function callBackMain() {
 
     showCard($(this))
@@ -104,9 +115,9 @@ function callBackMain() {
             myScore();
             $(this).off();
         } else {
-          setTimeout(function(){
-            hideNoMatch()
-          },1000);
+            setTimeout(function() {
+                hideNoMatch()
+            }, 1000);
 
         }
         console.log("Array size " + cardsInPlay.length)
@@ -128,31 +139,37 @@ function showCard($whatCard) {
 }
 
 function hideCard($whatCard) {
+
     $whatCard.children().eq(0).hide()
     $whatCard.children().eq(1).show()
-    console.log("logging for hide Card in hide Card " + $whatCard)
 }
 
 function hideNoMatch() {
     // adjust later to only hide boxes that are not yet matched:
     $('.game').each(function(i, box) {
         if (!$(box).children().eq(0).hasClass('matched')) {
+            console.log("logging for what Card in hideNoMatchcard " + i)
             $(box).children().eq(0).hide()
             $(box).children().eq(1).show()
         }
         //set the player turn here
     })
-      console.log("about to call myTurn");
+    console.log("about to call myTurn");
     myTurn();
 }
 
 function enableClick() {
-    $(".game").on("click",callBackMain)
+    $(".game").on("click", callBackMain)
 }
 
-  $("#reset").on("click",function(){
+function finalScore() {
+    finalScoreA = $('#playerA').val()
+    finalScoreB = $('#playerB').val()
+}
+
+$("#reset").on("click", function() {
     $('.parclass').empty()
     resetScore()
     randomize()
     enableClick()
-  })
+})
