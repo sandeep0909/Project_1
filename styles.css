@@ -70,3 +70,12 @@ img {
 .default-img1 {
     /*display: none;*/
 }
+#reset{
+  height: 30px;
+  width: 100px;
+  background-color: yellow;
+  opacity: 0.8;
+  font-style: italic;
+  font-size: 12px;
+  font-weight: bold;
+}

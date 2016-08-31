@@ -2,6 +2,47 @@ var cardsInPlay = [];
 var points = 0;
 var currPlayer = playerA;
 
+var box_arr = [
+'<div id="box1" class="game"><img src="memory-car.png" class="car" alt="car" ><img src="bg_img.jpg" class="default-img1" alt="" ></div>' ,
+'<div id="box2" class="game"><img src="memory-car.png" class="car" alt="car"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
+'<div id="box3" class="game"><img src="memory_baloon.png" class="balloon" alt="balloon"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
+'<div id="box4" class="game"><img src="memory_baloon.png" class="balloon" alt="balloon"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
+'<div id="box5" class="game"><img src="memory_cow.png" class="cow" alt="cow"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
+'<div id="box6" class="game"><img src="memory_cow.png" class="cow" alt="cow"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
+'<div id="box7" class="game"><img src="memory_crane.png" class="crane" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
+'<div id="box8" class="game"><img src="memory_crane.png" class="crane" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>'
+
+]
+
+
+function randomize(){
+  shuffle(box_arr)
+for (var i = 0; i < box_arr.length; i++) {
+ $('.parclass').append(box_arr[i])
+}
+
+}
+
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
 function myTurn() {
   console.log("myTurn Called");
     if (currPlayer == playerA) {
@@ -99,4 +140,8 @@ function enableClick() {
     $(".game").on("click",callBackMain)
 }
 
-enableClick()
+  $("#reset").on("click",function(){
+    $('.parclass').empty()
+    randomize()
+    enableClick()
+  })
