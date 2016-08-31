@@ -10,8 +10,7 @@ var box_arr = [
 '<div id="box5" class="game"><img src="memory_cow.png" class="cow" alt="cow"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
 '<div id="box6" class="game"><img src="memory_cow.png" class="cow" alt="cow"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
 '<div id="box7" class="game"><img src="memory_crane.png" class="crane" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
-'<div id="box8" class="game"><img src="memory_crane.png" class="crane" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>'
-
+'<div id="box8" class="game"><img src="memory_crane.png" class="crane" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>','<div id="box9" class="game"><img src="memory_lion.png" class="lion" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>','<div id="box10" class="game"><img src="memory_lion.png" class="lion" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>','<div id="box11" class="game"><img src="memory_orange.png" class="orange" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>','<div id="box12" class="game"><img src="memory_orange.png" class="orange" alt="crane"><img src="bg_img.jpg" class="default-img1" alt=""></div>'
 ]
 
 
@@ -46,12 +45,18 @@ function shuffle(array) {
 function myTurn() {
   console.log("myTurn Called");
     if (currPlayer == playerA) {
+
         currPlayer = playerB;
+      $('#btn2').css("background-color","red");
+      $('#btn1').css("background-color","rgb(192, 192, 192)");
+
         console.log(currPlayer);
         return (currPlayer);
 
     } else {
         currPlayer = playerA;
+      $('#btn1').css("background-color","blue");
+      $('#btn2').css("background-color","rgb(192, 192, 192)");
         console.log(currPlayer);
         return (currPlayer);
     }
@@ -69,6 +74,11 @@ function myScore() {
         $('#playerB').val(points)
         console.log(points);
     }
+}
+
+function resetScore(){
+  parseInt($('#playerA').val(0))
+  parseInt($('#playerB').val(0))
 }
 
 function isMatch() {
@@ -142,6 +152,7 @@ function enableClick() {
 
   $("#reset").on("click",function(){
     $('.parclass').empty()
+    resetScore()
     randomize()
     enableClick()
   })
