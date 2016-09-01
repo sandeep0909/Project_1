@@ -7,6 +7,9 @@ var totalPoints = 0;
 var message;
 var message1;
 
+$('#inst-link').click(function() {
+    $('.instructions').slideToggle("slow");    
+})
 var box_arr = [
     '<div id="box1" class="game"><img src="memory-car.png" class="car" alt="car" ><img src="bg_img.jpg" class="default-img1" alt="" ></div>',
     '<div id="box2" class="game"><img src="memory-car.png" class="car" alt="car"><img src="bg_img.jpg" class="default-img1" alt=""></div>',
@@ -148,13 +151,11 @@ function hideCard($whatCard) {
 }
 
 function hideNoMatch() {
-    // adjust later to only hide boxes that are not yet matched:
     $('.game').each(function(i, box) {
         if (!$(box).children().eq(0).hasClass('matched')) {
             $(box).children().eq(0).hide()
             $(box).children().eq(1).show()
         }
-        //set the player turn here
     })
     myTurn();
 }
@@ -165,17 +166,17 @@ function enableClick() {
 
 function checkWinner() {
     if (pointAA > pointBB) {
-        message = 'A wins!!!'
-        $("div.message_bar").html("<h3>" + message + "</h3>")
+        message = 'Player 1 wins!!!'
+        $("div.message_bar1").html("<h3>" + message + "</h3>")
     } else if (pointAA < pointBB) {
-        message = 'B wins!!!'
-        $("div.message_bar").html("<h3>" + message + "</h3>")
+        message = 'Player 2 wins!!!'
+        $("div.message_bar1").html("<h3>" + message + "</h3>")
     } else {
-        message = 'It' + 's a tie!!!'
-        $("div.message_bar").html("<h3>" + message + "</h3>")
+        message = "It"+ "'" + "s a tie!!!"
+        $("div.message_bar1").html("<h3>" + message + "</h3>")
     }
     message1 = 'Game Over!!!';
-    $("div.message_bar").append("<h2>" + message1 + "</h2>")
+    $("div.message_bar2").html("<h2>" + message1 + "</h2>")
 }
 
 function finalScore() {
