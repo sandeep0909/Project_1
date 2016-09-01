@@ -8,7 +8,7 @@ var message;
 var message1;
 
 $('#inst-link').click(function() {
-    $('.instructions').slideToggle("slow");    
+    $('.instructions').slideToggle("slow");
 })
 var box_arr = [
     '<div id="box1" class="game"><img src="memory-car.png" class="car" alt="car" ><img src="bg_img.jpg" class="default-img1" alt="" ></div>',
@@ -149,6 +149,8 @@ function hideCard($whatCard) {
     $whatCard.children().eq(0).hide()
     $whatCard.children().eq(1).show()
 }
+  var myMusic = new Audio("myMusic.mov");
+
 
 function hideNoMatch() {
     $('.game').each(function(i, box) {
@@ -168,22 +170,27 @@ function checkWinner() {
     if (pointAA > pointBB) {
         message = 'Player 1 wins!!!'
         $("div.message_bar1").html("<h3>" + message + "</h3>")
+        myMusic.play();
     } else if (pointAA < pointBB) {
         message = 'Player 2 wins!!!'
         $("div.message_bar1").html("<h3>" + message + "</h3>")
+        myMusic.play();
     } else {
         message = "It"+ "'" + "s a tie!!!"
         $("div.message_bar1").html("<h3>" + message + "</h3>")
+        myMusic.play();
     }
     message1 = 'Game Over!!!';
     $("div.message_bar2").html("<h2>" + message1 + "</h2>")
 }
 
+
+
 function finalScore() {
     if (totalPoints == 6) {
         setTimeout(function() {
             checkWinner()
-        }, 500);
+        }, 300);
 
     }
 }
