@@ -109,7 +109,6 @@ function isMatch() {
 function callBackMain() {
 
     showCard($(this))
-        //debugger;
     if (cardsInPlay.length < 2) {
         cardsInPlay.push($(this).children().eq(0).attr('class'))
     }
@@ -166,26 +165,24 @@ function enableClick() {
 
 function checkWinner() {
     if (pointAA > pointBB) {
-         message = 'A wins!!!'
-         $("div.message_bar").html("<h3>"+message+"</h3>")
-    } else if (pointAA < pointBB){
-         message = 'B wins!!!'
-         $("div.message_bar").html("<h3>"+message+"</h3>")
+        message = 'A wins!!!'
+        $("div.message_bar").html("<h3>" + message + "</h3>")
+    } else if (pointAA < pointBB) {
+        message = 'B wins!!!'
+        $("div.message_bar").html("<h3>" + message + "</h3>")
     } else {
-         message = 'It'+'s a tie!!!'
-        $("div.message_bar").html("<h3>"+message+"</h3>")
+        message = 'It' + 's a tie!!!'
+        $("div.message_bar").html("<h3>" + message + "</h3>")
     }
     message1 = 'Game Over!!!';
-    $("div.message_bar").append("<h2>"+message1+"</h2>")
-    //location.reload();
+    $("div.message_bar").append("<h2>" + message1 + "</h2>")
 }
 
 function finalScore() {
-    //return (totalPoints)
     if (totalPoints == 6) {
-      setTimeout(function() {
-          checkWinner()
-      }, 500);
+        setTimeout(function() {
+            checkWinner()
+        }, 500);
 
     }
 }
@@ -197,5 +194,5 @@ $("#restart").on("click", function() {
     enableClick()
 })
 $("#reset").on("click", function() {
-location.reload();
+    location.reload();
 });
