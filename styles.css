@@ -32,8 +32,8 @@
     align-items: auto;
     padding-left: 10px;
 }
-.message_bar{
-  width: 100%;
+.message_bar1{
+  width: 49%;
   text-align: center;
   height: 40px;
   display:inline-block;
@@ -43,8 +43,17 @@
   text-align: center;
   font-family:digital_7;
   color: red;
-  font-size: 20px;
-  border: chocolate solid 1px;
+}
+.message_bar2{
+  width: 49%;
+  text-align: center;
+  height: 40px;
+  display:inline-block;
+  background-color: white;
+  text-shadow: 0 0 3px #ff0000;
+  text-decoration: underline;
+  text-align: center;
+  font-family:digital_7;
 }
 .footer {
     width: 100%;
@@ -105,4 +114,45 @@ img {
   font-style: italic;
   font-size: 12px;
   font-weight: bold;
+  margin: 0px 10px 0px 10px;
+}
+#restart{
+  height: 24px;
+  width: 100px;
+  background-color: yellow;
+  opacity: 0.8;
+  font-style: italic;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0px 10px 0px 10px;
+}
+#playerA{
+  height: 24px;
+  width: 50px;
+  font-style: italic;
+  font-size: 12px;
+  font-weight: bold;
+}
+#playerB{
+  height: 24px;
+  width: 50px;
+  font-style: italic;
+  font-size: 12px;
+  font-weight: bold;
+}
+#btn1{
+  height: 24px;
+  width: 60px;
+  font-style: italic;
+  font-size: 12px;
+  font-weight: bold;
+
+}
+#btn2{
+  height: 24px;
+  width: 60px;
+  font-style: italic;
+  font-size: 12px;
+  font-weight: bold;
+
 }

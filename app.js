@@ -67,21 +67,17 @@ function shuffle(array) {
 }
 
 function myTurn() {
-    console.log("myTurn Called");
     if (currPlayer == playerA) {
 
         currPlayer = playerB;
         $('#btn2').css("background-color", "red");
         $('#btn1').css("background-color", "rgb(192, 192, 192)");
-
-        console.log(currPlayer);
         return (currPlayer);
 
     } else {
         currPlayer = playerA;
         $('#btn1').css("background-color", "blue");
         $('#btn2').css("background-color", "rgb(192, 192, 192)");
-        console.log(currPlayer);
         return (currPlayer);
     }
 }
@@ -113,17 +109,13 @@ function isMatch() {
 function callBackMain() {
 
     showCard($(this))
-    console.log("before entering if Checkpoint")
         //debugger;
     if (cardsInPlay.length < 2) {
-        console.log(" entering if Checkpoint")
         cardsInPlay.push($(this).children().eq(0).attr('class'))
     }
 
     if (cardsInPlay.length == 2) {
-        console.log(" entering if Checkpoint after match")
         if (isMatch()) {
-            console.log("entering isMatch ");
             $('.' + cardsInPlay[0]).addClass('matched')
             $('.' + cardsInPlay[0]).addClass('zoomIn animated')
             $('.' + cardsInPlay[1]).addClass('zoomIn animated')
@@ -132,7 +124,7 @@ function callBackMain() {
         } else {
             setTimeout(function() {
                 hideNoMatch()
-            }, 1000);
+            }, 500);
 
         }
         cardsInPlay = []
@@ -140,7 +132,7 @@ function callBackMain() {
     if (cardsInPlay.length > 2) {
         cardsInPlay = []
     }
-    console.log("just before final score");
+
     finalScore()
 
 }
@@ -198,9 +190,12 @@ function finalScore() {
     }
 }
 
-$("#reset").on("click", function() {
+$("#restart").on("click", function() {
     $('.parclass').empty()
     resetScore()
     randomize()
     enableClick()
 })
+$("#reset").on("click", function() {
+location.reload();
+});
