@@ -18,39 +18,57 @@
 
 .header {
     width: 100%;
-    height: 50px;
+    height: 30px;
     background-color: green;
     border: chocolate solid 1px;
 }
 
 .game {
-    width: 32%;
+    width: 30.9%;
     height: 140px;
     background-color: blue;
     border: chocolate solid 1px;
     display: inline-block;
-    margin-left: 2px;
+    align-items: auto;
+    padding-left: 10px;
 }
-
+.message_bar{
+  width: 100%;
+  text-align: center;
+  height: 40px;
+  display:inline-block;
+  background-color: white;
+  text-shadow: 0 0 3px #ff0000;
+  text-decoration: underline;
+  text-align: center;
+  font-family:digital_7;
+  color: red;
+  font-size: 20px;
+  border: chocolate solid 1px;
+}
 .footer {
-    max-width: 100%;
+    width: 100%;
     text-align: center;
     height: 30px;
+    display:inline-block;
     background-color: beige;
     border: chocolate solid 1px;
 }
-#start_game{
-      height: 615px;
-      max-width: 98%;
-      display: inline-block;
-
-}
 img {
+
     max-height: 100%;
     max-width: 100%;
     display: inline-block;
-    padding-left: 10px;
+
 }
+#start_game{
+      height: 100%;
+      max-width: 100%;
+      display:inline-block;
+      padding-left: none;
+      margin: none;
+}
+
 
 .car {
     display: none;
@@ -80,7 +98,7 @@ img {
     /*display: none;*/
 }
 #reset{
-  height: 30px;
+  height: 24px;
   width: 100px;
   background-color: yellow;
   opacity: 0.8;

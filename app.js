@@ -4,6 +4,8 @@ var currPlayer = playerA;
 var pointAA = 0;
 var pointBB = 0;
 var totalPoints = 0;
+var message;
+var message1;
 
 var box_arr = [
     '<div id="box1" class="game"><img src="memory-car.png" class="car" alt="car" ><img src="bg_img.jpg" class="default-img1" alt="" ></div>',
@@ -24,6 +26,24 @@ function randomize() {
     }
 
 }
+
+// var box_arr = [
+//   {img: "memory-car", class: "car"},
+//   {img: "memory-car", class: "car"},
+//   {img: "memory-car", class: "car"},
+//   {img: "memory-car", class: "car"},
+//   {img: "memory-car", class: "car"},
+//   {img: "memory-car", class: "car"}
+// ]
+//
+// function randomize() {
+//     shuffle(box_arr)
+//     for (var i = 0; i < box_arr.length; i++) {
+//       var box = '<div class="game"><img src="' + box_arr[i].img + '.png" class="' + box_arr[i].class + '" alt="car" ><img src="bg_img.jpg" class="default-img1" alt="" ></div>'
+//         $('.parclass').append(box)
+//     }
+//
+// }
 
 
 function shuffle(array) {
@@ -72,18 +92,13 @@ function myScore() {
         points = points + 1
         pointAA = points
         $('#playerA').val(points)
-        console.log("pointAA " + pointAA);
-
     } else {
         points = parseInt($('#playerB').val())
         points = points + 1
         pointBB = points
         $('#playerB').val(points)
-        console.log("pointbb " + pointBB);
     }
-    console.log("computing total points")
     totalPoints = pointAA + pointBB
-    console.log("Total points scored so far is  " + totalPoints);
 }
 
 function resetScore() {
@@ -93,8 +108,6 @@ function resetScore() {
 
 function isMatch() {
     return (cardsInPlay[0] == cardsInPlay[1])
-    console.log("Logging for isMatch " + cardsInPlay[0] + "Array 1 is " + cardsInPlay[1]);
-
 }
 
 function callBackMain() {
@@ -112,6 +125,8 @@ function callBackMain() {
         if (isMatch()) {
             console.log("entering isMatch ");
             $('.' + cardsInPlay[0]).addClass('matched')
+            $('.' + cardsInPlay[0]).addClass('zoomIn animated')
+            $('.' + cardsInPlay[1]).addClass('zoomIn animated')
             myScore();
             $(this).off();
         } else {
@@ -120,20 +135,17 @@ function callBackMain() {
             }, 1000);
 
         }
-        console.log("Array size " + cardsInPlay.length)
         cardsInPlay = []
     }
     if (cardsInPlay.length > 2) {
-        console.log("making array blank")
         cardsInPlay = []
     }
-    console.log("Array size now " + cardsInPlay.length)
-
+    console.log("just before final score");
+    finalScore()
 
 }
 
 function showCard($whatCard) {
-    console.log("logging for what Card in ShowCard " + $whatCard)
     $whatCard.children().eq(0).show()
     $whatCard.children().eq(1).hide()
 }
@@ -148,13 +160,11 @@ function hideNoMatch() {
     // adjust later to only hide boxes that are not yet matched:
     $('.game').each(function(i, box) {
         if (!$(box).children().eq(0).hasClass('matched')) {
-            console.log("logging for what Card in hideNoMatchcard " + i)
             $(box).children().eq(0).hide()
             $(box).children().eq(1).show()
         }
         //set the player turn here
     })
-    console.log("about to call myTurn");
     myTurn();
 }
 
@@ -162,9 +172,30 @@ function enableClick() {
     $(".game").on("click", callBackMain)
 }
 
+function checkWinner() {
+    if (pointAA > pointBB) {
+         message = 'A wins!!!'
+         $("div.message_bar").html("<h3>"+message+"</h3>")
+    } else if (pointAA < pointBB){
+         message = 'B wins!!!'
+         $("div.message_bar").html("<h3>"+message+"</h3>")
+    } else {
+         message = 'It'+'s a tie!!!'
+        $("div.message_bar").html("<h3>"+message+"</h3>")
+    }
+    message1 = 'Game Over!!!';
+    $("div.message_bar").append("<h2>"+message1+"</h2>")
+    //location.reload();
+}
+
 function finalScore() {
-    finalScoreA = $('#playerA').val()
-    finalScoreB = $('#playerB').val()
+    //return (totalPoints)
+    if (totalPoints == 6) {
+      setTimeout(function() {
+          checkWinner()
+      }, 500);
+
+    }
 }
 
 $("#reset").on("click", function() {
