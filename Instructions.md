@@ -54,6 +54,7 @@ The system should be able to play a music when the game is over
 4. Mike
 5. Kate
 6. All my friends in WDI#36
+7. Fisher-Yates
 
 # Phase 2 upgrades:
 1. Make the game a little more challenging
