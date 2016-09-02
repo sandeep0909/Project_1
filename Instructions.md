@@ -54,3 +54,17 @@ The system should be able to play a music when the game is over
 4. Mike
 5. Kate
 6. All my friends in WDI#36
+
+# Phase 2 upgrades:
+1. Make the game a little more challenging
+2. Add timer to the game
+3. Use enhanced animation
+4. make it a 6X4 and 6X6 game5. Introduce stacks (like soccer stacks, football stacks) which player can choose
+5. Keep a running score for players
+6. Make it more as a platform for learning your motor and memory skills and enhance it to areas of education and gamify the learning!
+7. Go find someone who can fund the project!
+
+Terms of use:
+Use of this game is for learning and fun purpose only. Using it for any other purpose is strictly prohibited.
+
+@ 2016 all rights reserved - Sandeep Panigrahi
