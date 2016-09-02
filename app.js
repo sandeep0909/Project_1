@@ -149,7 +149,7 @@ function hideCard($whatCard) {
     $whatCard.children().eq(0).hide()
     $whatCard.children().eq(1).show()
 }
-  var myMusic = new Audio("myMusic.mov");
+var myMusic = new Audio("myMusic.mov");
 
 
 function hideNoMatch() {
@@ -176,7 +176,7 @@ function checkWinner() {
         $("div.message_bar1").html("<h3>" + message + "</h3>")
         myMusic.play();
     } else {
-        message = "It"+ "'" + "s a tie!!!"
+        message = "It" + "'" + "s a tie!!!"
         $("div.message_bar1").html("<h3>" + message + "</h3>")
         myMusic.play();
     }
