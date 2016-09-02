@@ -28,3 +28,29 @@ This is a two player game. Player A and Player B. Player A starts first.
 3. Ability to shuffle the cards randomly at the start of the game
 4. Ability to have players play their turns
 5. Ability to track the scores
+
+# Use cases
+
+1. US1 - The user 1 clicks on the game restart button.
+The board shuffles and the board is ready to get started
+2. US2 - User 1 clicks on any tile. A picture gets popped up
+3. US3- User 1 clicks on another tile. Another picture gets popped up
+if the picture matches then add animation to the pictures
+The player 1 continues till they do not make a pair match
+if pair do not match then flip the images back to tile
+The moves moves to player 2
+4. US4 - The system keeps a tab on the scores.
+The system should be able to show the scores at run time
+The system should be able to tell whose move it is based on color of the button
+5. US5 - The game is over when all the pairs are shown and matched
+The system should detect who won the game
+The system should be able to display message about the winner
+The system should be able to play a music when the game is over
+
+# Credits:
+1. Uncle Philippe
+2. Uncle Jimmy
+3. Conrad
+4. Mike
+5. Kate
+6. All my friends in WDI#36

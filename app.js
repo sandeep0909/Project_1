@@ -30,25 +30,6 @@ function randomize() {
 
 }
 
-// var box_arr = [
-//   {img: "memory-car", class: "car"},
-//   {img: "memory-car", class: "car"},
-//   {img: "memory-car", class: "car"},
-//   {img: "memory-car", class: "car"},
-//   {img: "memory-car", class: "car"},
-//   {img: "memory-car", class: "car"}
-// ]
-//
-// function randomize() {
-//     shuffle(box_arr)
-//     for (var i = 0; i < box_arr.length; i++) {
-//       var box = '<div class="game"><img src="' + box_arr[i].img + '.png" class="' + box_arr[i].class + '" alt="car" ><img src="bg_img.jpg" class="default-img1" alt="" ></div>'
-//         $('.parclass').append(box)
-//     }
-//
-// }
-
-
 function shuffle(array) {
     var currentIndex = array.length,
         temporaryValue, randomIndex;
